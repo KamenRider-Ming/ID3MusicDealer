@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="ID3MusicDealer.js"></script>
+</head>
+<body>
+<input type="file" id="audio"/>
+<img src="" id="imgShow">
+<script type="text/javascript">
+        console.log(ID3module);
+        console.log(ID3v2);
+        var audio = document.getElementById('audio'),
+            imgShow = document.getElementById('imgShow');
+        audio.onchange = function(e){
+            var file = e.target.files[0];
+            var readerFnc = ID3module.fileAPIReader(file);
+            readerFnc(function(data){
+                var id3 = ID3v2.readTagsFromData(data, ["title","picture"]);
+                console.log(id3);
+                var imgData = '';
+                for(var i = 0;i < id3.picture.data.length;i ++){
+                    imgData += String.fromCharCode(id3.picture.data[i]);
+                }
+                imgShow.src = "data:image/jpeg;base64," + ID3module.b64Utils.btoa(imgData);
+            });
+        };
+    </script>
+</body>
+</html>
