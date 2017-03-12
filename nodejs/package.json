@@ -1,8 +1,8 @@
 {
   "name": "tid3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "only deal mp3-ID3v2 file",
-  "main": "ID3.js",
+  "main": "tid3.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +11,9 @@
     "url": "http://github.com/jslinuxboy/ID3MusicDealer/tree/master/nodejs"
   },
   "keywords": [
-    "tid3"
+    "id3",
+	"id3v2"
   ],
   "author": "tm7",
-  "license": "MIT"
+  "license": "ISC"
 }
